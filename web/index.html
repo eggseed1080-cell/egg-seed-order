@@ -11,7 +11,7 @@
 
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
-    // 전역 함수로 정의하여 Flutter에서 호출 가능하게 함
+    // 전역 함수로 등록하여 Flutter(Dart)에서 접근 가능하게 함
     window.openDaumPostcode = function(callback) {
       new daum.Postcode({
         oncomplete: function(data) {
