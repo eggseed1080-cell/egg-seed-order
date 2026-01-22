@@ -32,6 +32,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  url_launcher: ^6.3.1  # 이 줄을 추가하세요
 
   # 아래 패키지들이 각각 '딱 한 번씩만' 나타나야 합니다.
   supabase_flutter: ^2.12.0
