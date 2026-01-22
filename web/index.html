@@ -1,47 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-  function openDaumPostcode(callback) {
-    new daum.Postcode({
-      oncomplete: function(data) {
-        // 도로명 주소 또는 지번 주소 중 선택한 주소를 반환
-        callback(data.address);
-      }
-    }).open();
-  }
-</script>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
+  <base href="$FLUTTER_BASE_HREF">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="에그앤씨드 고로쇠 주문 서비스">
 
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="egg_seed_app">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>egg_seed_app</title>
+  <title>에그앤씨드 고로쇠</title>
   <link rel="manifest" href="manifest.json">
+
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    // 전역 함수로 정의하여 Flutter에서 호출 가능하게 함
+    window.openDaumPostcode = function(callback) {
+      new daum.Postcode({
+        oncomplete: function(data) {
+          callback(data.address);
+        }
+      }).open();
+    };
+  </script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
