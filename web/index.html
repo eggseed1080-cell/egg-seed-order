@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+  function openDaumPostcode(callback) {
+    new daum.Postcode({
+      oncomplete: function(data) {
+        // 도로명 주소 또는 지번 주소 중 선택한 주소를 반환
+        callback(data.address);
+      }
+    }).open();
+  }
+</script>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
